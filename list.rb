@@ -1,4 +1,3 @@
-Resolving dependencies...
 require_relative "event"
 
 class List
@@ -44,7 +43,7 @@ class List
       begin
         completed_date = Date.parse(input_date)
         break
-      rescue Error
+      rescue
         puts "Please write the date in the correct format (YYYY-MM-DD)."
       end
     end
