@@ -7,7 +7,7 @@ The Bucket List CLI app provides users with a simple, command-line interface to 
 - As a user, I want to input a bucket list event I have completed, so that I can add to a list of all the bucket list items I have completed.
 - As a user, I want to input the date at which I completed the bucket list event, so that I can check when I have completed the events.
 
-### Checking the list of bucket list items completed
+### Check the list of bucket list items completed
 - As a user, I want to view a list of all the bucket list items that I have completed and the dates at which I completed each specific item.
 
 ## Functional Requirements
