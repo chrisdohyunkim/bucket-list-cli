@@ -11,8 +11,6 @@ class TestList < Minitest::Test
     item = "Skydiving"
     completed_date = Date.new(2025, 9, 8)
     @bucket_list.add_event
-
-    # Test that the event was added
     assert_equal 1, @bucket_list.events.size #Event should be added to the list
     assert_equal item, @bucket_list.events.first.item #Event item should match
     assert_equal completed_date, @bucket_list.events.first.completed_date #Event date should match

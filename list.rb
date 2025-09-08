@@ -1,7 +1,7 @@
 require_relative "event"
 
 class List
-  attr_reader :events  
+  attr_reader :events
 
   def initialize
     @events = []
