@@ -1,8 +1,10 @@
 require_relative "event"
 
 class List
+  attr_reader :events  
+
   def initialize
-    @event = []
+    @events = []
   end
 
   def run
@@ -34,28 +36,27 @@ class List
   def add_event
     print "Enter which bucket list event you completed: "
     item = gets.chomp
-
     completed_date = nil
     loop do
-      print "Enter which date you completed the event (i.e. YYYY-MM-DD): "
+      print "Enter which date you completed the event (i.e. YYYY-MM-DD, YYMMDD, YYYYMMDD): "
       input_date = gets.chomp
 
       begin
         completed_date = Date.parse(input_date)
         break
       rescue
-        puts "Please write the date in the correct format (YYYY-MM-DD)."
+        puts "Please write the date in the correct format (i.e. YYYY-MM-DD, YYMMDD, YYYYMMDD)."
       end
     end
 
-    @event << Event.new(item, completed_date)
+    @events << Event.new(item, completed_date)
     puts "Good job on another bucket list item completed!"
   end
 
   def list_events
     puts "These are the bucket list items you completed this year: "
-    @event.each do |event|
-      puts event
+    @events.each do |events|
+      puts events
     end
   end
 end
