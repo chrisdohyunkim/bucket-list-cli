@@ -33,25 +33,28 @@ class List
 
   require "date"
 
-  def add_event
-    print "Enter which bucket list event you completed: "
+def add_event(item = nil, completed_date = nil)
+  
+  if item.nil?
+    print "Enter the completed bucket list activity: "
     item = gets.chomp
-    completed_date = nil
-    loop do
-      print "Enter which date you completed the event (i.e. YYYY-MM-DD, YYMMDD, YYYYMMDD): "
-      input_date = gets.chomp
+  end
 
+  if completed_date.nil?
+    loop do
+      print "Enter completed date (YYYY-MM-DD): "
+      input = gets.chomp
       begin
-        completed_date = Date.parse(input_date)
+        completed_date = Date.strptime(input, "%Y-%m-%d")
         break
-      rescue
-        puts "Please write the date in the correct format (i.e. YYYY-MM-DD, YYMMDD, YYYYMMDD)."
+      rescue ArgumentError
+        puts "Please write the date in the correct format (YYYY-MM-DD)."
       end
     end
-
-    @events << Event.new(item, completed_date)
-    puts "Good job on another bucket list item completed!"
   end
+
+  @events << Event.new(item, completed_date)
+end
 
   def list_events
     puts "These are the bucket list items you completed this year: "
